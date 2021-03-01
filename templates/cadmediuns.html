@@ -1,5 +1,6 @@
 {% load static %}
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,14 +11,19 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 class="home">Lista de Mediuns</h1>
+    <h1 class="home">Cadastro de Mediuns!!!</h1>
+       <h2>Cadastro de Mediuns</h2>
 
-    <ul>
-        {% for mediuns in listamediuns %}
-            <li>{{ mediuns.nome }}</li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'cadmediuns_insert' %}">Novo</a>
+    <div class="container">
+      <form action="{% url 'cadmediuns_insert' %}" method="POST">
+          {% csrf_token %} <!-- Protejer o formulario -->
+          {{ form }}
+          <br><br>
+          <button type="submit">Salvar</button>
+          <a href="{% url 'cadmediuns_lista' %}">Cancelar</a>
+          <br><br>
+      </form>
+    </div>
     <img src="{% static "img/owl-s2-it-peq.jpg" %}" alt="My image"/>
 </body>
 </html>
