@@ -16,8 +16,10 @@ Including another URLconf
 
 from django.urls import path, include
 
+from django.contrib import admin
 from cadmediuns import urls as cadmediuns_urls
 
 urlpatterns = [
-    path('medium/', include(cadmediuns_urls)),
+    path('admin/', admin.site.urls),
+    path('cadmedium/', include(cadmediuns_urls)),
 ]

@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
-def cadmediuns(request):
-    return render(request, 'cadmediuns.html')
+from cadmediuns.models import CadastroMediuns
 
-def articles(request, year):
-    return HttpResponse('O ano enviado foi:' + str(year))
+def cadmediuns_lista(request):
+    listamediuns = CadastroMediuns.objects.all()
+    return render(request, 'cadmediuns_lista.html', {'listamediuns': listamediuns})
+
+
