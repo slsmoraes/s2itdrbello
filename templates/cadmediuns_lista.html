@@ -14,7 +14,10 @@
 
     <ul>
         {% for mediuns in listamediuns %}
-        <li><a href="{% url 'cadmediuns_update' mediuns.id %}">{{ mediuns.nome }}</a></li>
+        <li>
+            <a href="{% url 'cadmediuns_update' mediuns.id %}">{{ mediuns.nome }}</a>
+            <a href="{% url 'cadmediuns_delete' mediuns.id %}">Deletar</a>
+        </li>
         {% endfor %}
     </ul>
     <a href="{% url 'cadmediuns_insert' %}">Novo</a>
