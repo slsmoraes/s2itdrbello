@@ -1,21 +1,22 @@
 {% extends 'base.html' %}
+{% load bootstrap %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
+
 {% block title %}Cadastro{%endblock%}
 
 {% block main%}
     <h1 class="home">Cadastro de Mediuns!!!</h1>
-       <h2>Cadastro de Mediuns</h2>
 
-    <div class="container">
-      <form method="POST">
-          {% csrf_token %} <!-- Protejer o formulario -->
-          {{ form }}
-          <br><br>
-          <button type="submit">Salvar</button>
-          <a href="{% url 'cadmediuns_lista' %}">Cancelar</a>
-          <br><br>
-      </form>
-    </div>
+    <form method="POST">
+      {% csrf_token %} <!-- Protejer o formulario -->
+      {{ form|bootstrap }}
+      <br><br>
+      <button type="submit">Salvar</button>
+      <a href="{% url 'cadmediuns_lista' %}">Cancelar</a>
+      <br><br>
+    </form>
+
     <img src="{% static "img/owl-s2-it-peq.jpg" %}" alt="My image"/>
+
 {% endblock %}}
