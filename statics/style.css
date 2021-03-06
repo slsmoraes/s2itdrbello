@@ -1,3 +1,7 @@
 .home {
     color: red;
 }
+
+.trash-item {
+    float: right;
+}

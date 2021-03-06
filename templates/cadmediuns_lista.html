@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'style.css' %}">
+
 {% block title%}Lista de Mediuns{% endblock %}
 
 {% block main %}
@@ -10,10 +10,20 @@
         {% for mediuns in listamediuns %}
         <li>
             <a href="{% url 'cadmediuns_update' mediuns.id %}">{{ mediuns.nome }}</a>
-            <a href="{% url 'cadmediuns_delete' mediuns.id %}">Deletar</a>
+            <a href="{% url 'cadmediuns_delete' mediuns.id %}" class="trash-item">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+            </a>
         </li>
         {% endfor %}
     </ul>
     <a href="{% url 'cadmediuns_insert' %}">Novo</a>
     <img src="{% static "img/owl-s2-it-peq.jpg" %}" alt="My image"/>
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">Desenvolvido by ST2-IT.</span>
+        </div>
+    </footer>
 {% endblock %}
